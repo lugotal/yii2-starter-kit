@@ -16,6 +16,7 @@ nbproject
 .buildpath
 .project
 .settings
+yii2-starter-kit.iml
 
 # windows thumbnail cache
 Thumbs.db
