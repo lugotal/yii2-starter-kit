@@ -10,26 +10,25 @@ domains = [
     "storage.yii2-starter-kit.localhost"
 ]
 packages = [
-    "php7.0",
-    "php7.0-cli",
-    "php7.0-common",
-    "php7.0-curl",
-    "php7.0-fpm",
-    "php7.0-gd",
-    "php7.0-intl",
-    "php7.0-json",
-    "php7.0-mcrypt",
-    "php7.0-mysql",
-    "php7.0-opcache",
-    "php7.0-readline",
-    "php7.0-mbstring",
-    "php7.0-dom",
+    "php7.4",
+    "php7.4-cli",
+    "php7.4-common",
+    "php7.4-curl",
+    "php7.4-fpm",
+    "php7.4-gd",
+    "php7.4-intl",
+    "php7.4-json",
+    "php7.4-mysql",
+    "php7.4-opcache",
+    "php7.4-readline",
+    "php7.4-mbstring",
+    "php7.4-dom",
     "php-xdebug",
     "nginx",
-    "mysql-server-5.6",
-    "hhvm",
+    "mysql-server-5.7",
     "git",
-    "zip"
+    "zip",
+    "php7.4-zip"
 ]
 
 Vagrant.configure(2) do |config|
@@ -43,7 +42,11 @@ Vagrant.configure(2) do |config|
 
   config.vm.define options['vm']['name'] {}
 
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/bionic64"
+
+  # Make sure we're using UTF-8 to avoid Apt issues
+  ENV['LC_ALL']="C.UTF-8"
+
   config.vm.hostname = domains[0]
   config.vm.network "private_network", ip: options['network']['ip']
   config.vm.synced_folder "./", "/var/www", id: "vagrant-root", :nfs => false, owner: "www-data", group: "www-data"

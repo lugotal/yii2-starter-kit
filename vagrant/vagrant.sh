@@ -20,19 +20,13 @@ fi
 echo ${timezone} | sudo tee /etc/timezone
 sudo dpkg-reconfigure --frontend noninteractive tzdata
 
-# Additional repositories
-if [ ! -f /etc/apt/sources.list.d/hhvm.list ]; then
-    sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0x5a16e7281be7a449
-    sudo echo 'deb http://dl.hhvm.com/ubuntu trusty main' >> /etc/apt/sources.list.d/hhvm.list
-fi
-
 sudo add-apt-repository -y ppa:ondrej/php
 
 # Configuring server software
 sudo update-locale LC_ALL="C"
 sudo dpkg-reconfigure locales
-echo "mysql-server-5.6 mysql-server/root_password password root" | debconf-set-selections
-echo "mysql-server-5.6 mysql-server/root_password_again password root" | debconf-set-selections
+echo "mysql-server-5.7 mysql-server/root_password password root" | debconf-set-selections
+echo "mysql-server-5.7 mysql-server/root_password_again password root" | debconf-set-selections
 
 sudo apt-get update
 sudo apt-get upgrade -y
@@ -89,5 +83,5 @@ echo "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit\` CHARACTER SET utf8mb4 C
 php /var/www/console/yii app/setup --interactive=0
 
 sudo service mysql restart
-sudo service php7.0-fpm restart
+sudo service php7.4-fpm restart
 sudo service nginx restart
