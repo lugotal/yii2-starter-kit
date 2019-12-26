@@ -14,6 +14,10 @@ It was created and developing as a fast start for building an advanced sites bas
 
 It covers typical use cases for a new project and will help you not to waste your time doing the same work in every project
 
+This fork is a version of the Yii2 starter kit with a few smaller updates and a bit of tailoring towards using it with Vagrant exclusively.
+
+It's for personal use first and foremost but maybe this is useful to someone else, too. :)
+
 ## Before you start
 Please, consider helping project via [contributions](https://github.com/yii2-starter-kit/yii2-starter-kit/issues) or [donations](#donations).
 
@@ -22,7 +26,6 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - [Features](#features)
 - [Installation](docs/installation.md)
     - [Manual installation](docs/installation.md#manual-installation)
-    - [Docker installation](docs/installation.md#docker-installation)
     - [Vagrant installation](docs/installation.md#vagrant-installation)
 - [Components documentation](docs/components.md)
 - [Console commands](docs/console.md)
@@ -30,18 +33,23 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - [FAQ](docs/faq.md)
 - [How to contribute?](#how-to-contribute)
 - [Have any questions?](#have-any-questions)
+- [Why did you remove Docker support?](#why-did-you-remove-docker-support)
 
 ## Quickstart
-1. [Install composer](https://getcomposer.org)
-2. [Install docker](https://docs.docker.com/install/)
-3. [Install docker-compose](https://docs.docker.com/compose/install/)
-4. Run
-    ```bash
-    composer create-project yii2-starter-kit/yii2-starter-kit myproject.com --ignore-platform-reqs
-    cd myproject.com
-    composer run-script docker:build
-    ```
-5. Go to [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost)
+1. Install [Vagrant](https://www.vagrantup.com/)
+2. Copy `./vagrant/vagrant.yml.dist` to `./vagrant/vagrant.yml`
+3. Copy `./.env.dist` to `./.env`
+3. Create GitHub [personal API token](https://github.com/blog/1509-personal-api-tokens)
+4. Edit values as desired including adding the GitHub personal API token to `./vagrant/vagrant.yml`
+5. Edit domains as desired in `./.env`
+   
+   If you edit domains in `./.env`, you need to make appropriate changes to `./vagrant/vhost.conf`
+6. Run:
+```
+vagrant plugin install vagrant-hostmanager
+vagrant up
+```
+That`s all. After provision application will be accessible on http://yii2-starter-kit.localhost
 
 ## FEATURES
 ### Admin backend
@@ -77,7 +85,7 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - RBAC migrations support
 
 ### Development
-- Ready-to-use Docker-based stack (php, nginx, mysql, mailcatcher)
+- Ready-to-use Vagrant-based stack (php, nginx, mysql, mailcatcher)
 - .env support
 - [Webpack](https://webpack.js.org/) build configuration
 - Key-value storage service
@@ -99,7 +107,7 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - Sitemap generator
 - Extended IDE autocompletion
 - Test-ready
-- Docker support and Vagrant support
+- Vagrant support
 - Built-in [mailcatcher](http://mailcatcher.me/)
 - [Swagger](https://swagger.io/) for API docs.
 
@@ -132,9 +140,11 @@ You can contribute in any way you want. Any help appreciated, but most of all i 
 ## Have any questions?
 Mail to [eugene@terentev.net](mailto:eugene@terentev.net)
 
+## Why did you remove Docker support?
+More of a personal choice. I pretty much exclusively use Windows and frankly, Docker is an absolute nightmare on Windows. Neither the kind-of deprecated Docker Toolbox nor the "new and improved" Docker for Windows work properly when volumes come into play. In comparison, Vagrant has been very easy to use. Sure, some small changes (like I made in this fork) were necessary. But this is a far cry from what is usually necessary to get a docker-compose system set up on a Windows host.
+
 ## READ MORE
 - [Yii2](https://github.com/yiisoft/yii2/tree/master/docs)
-- [Docker](https://docs.docker.com/get-started/)
 
 
 ### NOTE
