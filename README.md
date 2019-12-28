@@ -43,7 +43,7 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 4. Edit values as desired including adding the GitHub personal API token to `./vagrant/vagrant.yml`
 5. Edit domains as desired in `./.env`
    
-   If you edit domains in `./.env`, you need to make appropriate changes to `./vagrant/vhost.conf`
+   If you edit domains in `./.env`, you need to make appropriate changes to `./vagrant/vhost.conf` and `./Vagrantfile`
 6. Run:
 ```
 vagrant plugin install vagrant-hostmanager
