@@ -53,7 +53,7 @@ That`s all. After provision application will be accessible on http://yii2-starte
 
 ## FEATURES
 ### Admin backend
-- Beautiful and open source dashboard theme for backend [AdminLTE 2](http://almsaeedstudio.com/AdminLTE)
+- Beautiful and open source dashboard theme for backend [AdminLTE 3](https://adminlte.io/themes/v3/)
 - Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
 - Settings editor. Application settings form (based on KeyStorage component)
 - [File manager](https://github.com/MihailDev/yii2-elfinder)
@@ -72,6 +72,7 @@ That`s all. After provision application will be accessible on http://yii2-starte
     - Vietnamese
     - Polish
     - Portuguese (Brazil)
+    - Indonesian (Bahasa)
 - Language switcher, built-in behavior to choose locale based on browser preferred language
 - Backend translations manager
 
@@ -112,9 +113,8 @@ That`s all. After provision application will be accessible on http://yii2-starte
 - [Swagger](https://swagger.io/) for API docs.
 
 ## DEMO
-Demo is hosted by awesome [Digital Ocean](https://m.do.co/c/d7f000191ea8)
-- Frontend: [http://yii2-starter-kit.terentev.net](http://yii2-starter-kit.terentev.net)
-- Backend: [http://backend.yii2-starter-kit.terentev.net](http://backend.yii2-starter-kit.terentev.net)
+- Frontend: [https://yii2-starter-kit.herokuapp.com](https://yii2-starter-kit.herokuapp.com)
+- Backend: [https://yii2-starter-kit.herokuapp.com/backend](https://yii2-starter-kit.herokuapp.com/backend)
 
 `administrator` role account
 ```
@@ -138,7 +138,7 @@ Password: user
 You can contribute in any way you want. Any help appreciated, but most of all i need help with docs (^_^)
 
 ## Have any questions?
-Mail to [eugene@terentev.net](mailto:eugene@terentev.net)
+Mail to [victor@vgr.cl](mailto:victor@vgr.cl) or [yevhen.terentiev@gmail.com](mailto:yevhen.terentiev@gmai.com)
 
 ## Why did you remove Docker support?
 More of a personal choice. I pretty much exclusively use Windows and frankly, Docker is an absolute nightmare on Windows. Neither the kind-of deprecated Docker Toolbox nor the "new and improved" Docker for Windows work properly when volumes come into play. In comparison, Vagrant has been very easy to use. Sure, some small changes (like I made in this fork) were necessary. But this is a far cry from what is usually necessary to get a docker-compose system set up on a Windows host.
